@@ -1,0 +1,25 @@
+public class FakeBinary {
+    public static String fakeBin(String numberString) {
+    
+    int i =0;   
+   
+    StringBuilder nuevotx = new StringBuilder();
+    
+    
+      for ( i=0; i <  numberString.length(); i++ ) {
+      
+      
+      if (numberString.charAt(i) < '5' )
+      {     
+      nuevotx.append((String) ("0"));
+      } else 
+      {
+      nuevotx.append((String) ("1"));
+      }
+      
+    }
+           
+
+        return nuevotx.toString();
+    }
+}
