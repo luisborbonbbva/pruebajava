@@ -1,0 +1,44 @@
+public class Kata {
+	public static String longToIP(long ip) {
+
+    	String ips = "";
+    	
+        String numbinario=Long.toBinaryString(ip) ; 
+        int decimal1,decimal2,decimal3,decimal4;
+         
+        if ( numbinario.length() <= 8  ) {
+        	
+        	decimal1=Integer.parseInt(numbinario.substring(0,numbinario.length()),2);
+        	ips = "0.0.0." + decimal1 ;        	
+        }
+        
+        if ( numbinario.length() > 8 &&  numbinario.length() <= 16 ) {
+
+        	decimal1=Integer.parseInt(numbinario.substring(0,numbinario.length()-8),2);
+        	decimal2=Integer.parseInt(numbinario.substring(numbinario.length()-8,numbinario.length()),2);
+        	ips = "0.0." + decimal1 + "."  + decimal2; 
+        	
+        }
+        
+        if ( numbinario.length() > 16 &&  numbinario.length() <= 24 ) {
+
+        	decimal1=Integer.parseInt(numbinario.substring(0,numbinario.length()-16),2);
+        	decimal2=Integer.parseInt(numbinario.substring(numbinario.length()-16,numbinario.length()-8),2);
+        	decimal3=Integer.parseInt(numbinario.substring(numbinario.length()-8,numbinario.length()),2);
+        	ips = "0." + decimal1 + "." + decimal2 + "." + decimal3;        	
+        }
+        
+        if ( numbinario.length() > 24 &&  numbinario.length() <= 32 ) {
+
+        	decimal1=Integer.parseInt(numbinario.substring(0,numbinario.length()-24),2);
+        	decimal2=Integer.parseInt(numbinario.substring(numbinario.length()-24,numbinario.length()-16),2);
+        	decimal3=Integer.parseInt(numbinario.substring(numbinario.length()-16,numbinario.length()-8),2);
+        	decimal4=Integer.parseInt(numbinario.substring(numbinario.length()-8,numbinario.length()),2);
+        	ips = decimal1 + "." + decimal2 + "." + decimal3 + "." + decimal4 ; 
+        	
+        }        
+        
+        return ips;
+
+}
+}
